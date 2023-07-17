@@ -1,7 +1,7 @@
-//create an instance of express
+'use strict';
+
 const express = require('express');
-const app = express();
-const port = 3000;
+
 
 //load the environment variables
 require('dotenv').config();
@@ -59,6 +59,8 @@ app.post('/incoming', (req, res) => {
 }
 );
 
+const app = express();
+const port = 3000;
 
 //listen on port 3000
 app.listen(port, () => {
