@@ -93,9 +93,7 @@ exports.verifyotp = asyncHandler(async (req, res) => {
   await user.save();
 
   // Respond with success
-  res
-    .status(200)
-    .json({ message: "OTP verification successful." });
+  res.status(200).json({ message: "OTP verification successful." });
 });
 
 // Create a new Pin
@@ -120,11 +118,11 @@ exports.createpin = asyncHandler(async (req, res) => {
   user.pin = pin;
   user.is_otp_verified = false;
   await user.save();
-
+  const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    expiresIn: "7d",
+  });
   // Respond with success
-  res
-    .status(200)
-    .json({ message: "PIN creaated successfully." });
+  res.status(200).json({ message: "PIN created successfully.", token });
 });
 
 exports.login = asyncHandler(async (req, res) => {
