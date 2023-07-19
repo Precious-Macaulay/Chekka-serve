@@ -93,7 +93,12 @@ exports.verifyotp = asyncHandler(async (req, res) => {
   await user.save();
 
   // Respond with success
-  res.status(200).json({ message: "OTP verification successful." });
+  res
+    .status(200)
+    .json({
+      message: "OTP verification successful.",
+      phone_number: user.phone_number,
+    });
 });
 
 // Create a new Pin
