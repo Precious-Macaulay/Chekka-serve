@@ -6,6 +6,6 @@ const {
 const { createProduct, product } = require("../controllers/productController");
 
 router.post("/createproduct", authMiddleware, createProduct);
-router.get("/product", authMiddleware, product);
+router.get("/products", authMiddleware, product);
 
 module.exports = router;
