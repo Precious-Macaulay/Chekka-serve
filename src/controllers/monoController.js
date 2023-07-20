@@ -44,8 +44,8 @@ exports.getBanks = asyncHandler(async (req, res) => {
     (err, result) => {
       res.json({
         success: true,
-        income: 253304,
-        expense: 32535,
+        income: 2534,
+        expense: 3255,
         data: result,
       });
     }
